@@ -58,6 +58,8 @@ python agent_tracing_custom_attributes.py
 
 Contributions are welcome! Please submit issues and pull requests.
 
-## License
+## Author
 
-Copyright (c) Microsoft Corporation. Licensed under the MIT License.
+- GitHub: [praveen11singh](https://github.com/praveen11singh/)
+- LinkedIn: [Praveen Kumar](https://www.linkedin.com/in/praveen-kumar-b52a1a1a0)
+
