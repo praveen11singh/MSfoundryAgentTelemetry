@@ -1,32 +1,3 @@
-# pylint: disable=wrong-import-position,wrong-import-order,docstring-missing-param,ungrouped-imports
-# ------------------------------------
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT License.
-# ------------------------------------
-
-"""
-DESCRIPTION:
-    This sample demonstrates how to run basic Prompt Agent operations
-    using the synchronous client with telemetry tracing enabled to console.
-
-USAGE:
-    python sample_agent_basic_with_console_tracing.py
-
-    Before running the sample:
-
-    pip install "azure-ai-projects>=2.0.0" python-dotenv opentelemetry-sdk azure-core-tracing-opentelemetry
-
-    Set these environment variables with your own values:
-    1) FOUNDRY_PROJECT_ENDPOINT - The Azure AI Project endpoint, as found in the Overview
-       page of your Microsoft Foundry portal.
-    2) FOUNDRY_MODEL_NAME - The deployment name of the AI model, as found under the "Name" column in
-       the "Models + endpoints" tab in your Microsoft Foundry project.
-    3) AZURE_EXPERIMENTAL_ENABLE_GENAI_TRACING - Set to `true` to enable GenAI telemetry tracing, which is
-       disabled by default.
-    4) OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT - Optional. Set to `true` to trace the content of chat
-       messages, which may contain personal data. False by default.
-"""
-
 import os
 from typing import Any
 from dotenv import load_dotenv
@@ -114,7 +85,7 @@ with tracer.start_as_current_span(scenario):
 
         response = openai_client.responses.create(
             conversation=conversation.id,
-            input="Tell another one about computers.",
+            input="Tell another one about AI.",
             extra_body={"agent_reference": {"name": agent.name, "type": "agent_reference"}},
         )
         print(f"Answer: {response.output}")
