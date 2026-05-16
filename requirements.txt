@@ -1,0 +1,9 @@
+os
+python-dotenv
+azure-core
+azure-monitor-opentelemetry
+azure-identity
+azure-ai-projects
+opentelemetry-api
+opentelemetry-sdk
+openai

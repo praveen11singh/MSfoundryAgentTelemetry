@@ -31,7 +31,7 @@ class CustomAttributeSpanProcessor(SpanProcessor):
 
         # Add another attribute only to create_thread spans
         if span.name == "create_thread":
-            span.set_attribute("trace_sample.create_thread.context", "abc")
+            span.set_attribute("trace_sample.create_thread.context", "pkcontext")
 
     def on_end(self, span: ReadableSpan):
         # Clean-up logic can be added here if necessary
@@ -69,7 +69,7 @@ with tracer.start_as_current_span(scenario):
             instructions="You are a helpful assistant that answers general questions",
         )
 
-        agent = client.agents.create_version(agent_name="MyAgent", definition=agent_definition)
+        agent = client.agents.create_version(agent_name="pkagent", definition=agent_definition)
 
         client.agents.delete_version(agent_name=agent.name, agent_version=agent.version)
         print("Agent deleted")

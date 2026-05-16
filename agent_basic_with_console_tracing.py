@@ -70,12 +70,12 @@ with tracer.start_as_current_span(scenario):
             instructions="You are a helpful assistant that answers general questions",
         )
 
-        agent = project_client.agents.create_version(agent_name="MyAgent", definition=agent_definition)
+        agent = project_client.agents.create_version(agent_name="pkagent", definition=agent_definition)
         print(f"Agent created (id: {agent.id}, name: {agent.name}, version: {agent.version})")
 
         conversation = openai_client.conversations.create()
 
-        request = "Hello, tell me a joke."
+        request = "Hello, tell me a AI impact in medical sector."
         response = openai_client.responses.create(
             conversation=conversation.id,
             extra_body={"agent_reference": {"name": agent.name, "type": "agent_reference"}},
@@ -85,7 +85,7 @@ with tracer.start_as_current_span(scenario):
 
         response = openai_client.responses.create(
             conversation=conversation.id,
-            input="Tell another one about AI.",
+            input="Tell another one about AI in healthcare.",
             extra_body={"agent_reference": {"name": agent.name, "type": "agent_reference"}},
         )
         print(f"Answer: {response.output}")
